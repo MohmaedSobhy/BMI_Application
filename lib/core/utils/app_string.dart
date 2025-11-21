@@ -5,4 +5,6 @@ abstract class AppString {
   static const String weight = 'Weight';
   static const String heigth = 'Heigth';
   static const String cm = 'cm';
+  static const String age = 'Age';
+  static const String calculate = 'Calculate';
 }
