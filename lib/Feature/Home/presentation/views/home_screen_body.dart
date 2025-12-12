@@ -1,19 +1,22 @@
+import 'package:bmi/Feature/Home/presentation/views/select_age_weight_view.dart';
+import 'package:bmi/Feature/Home/presentation/views/select_gender_view.dart';
 import 'package:bmi/Feature/Home/presentation/views/select_height_view.dart';
 import 'package:bmi/core/theme/app_colors.dart';
 import 'package:bmi/core/utils/app_string.dart';
-import 'package:bmi/Feature/Home/presentation/widgets/custome_card_widget.dart';
-import 'package:bmi/Feature/Home/presentation/widgets/gender_card_widget.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreenBody extends StatefulWidget {
-  const HomeScreenBody({super.key});
+// ignore: must_be_immutable
+class HomeScreenBody extends StatelessWidget {
+  HomeScreenBody({super.key});
 
-  @override
-  State<HomeScreenBody> createState() => _HomeScreenBodyState();
-}
-
-class _HomeScreenBodyState extends State<HomeScreenBody> {
   bool isMaleSelected = false;
+
+  int weight = 50;
+
+  int age = 50;
+
+  double height = 120;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,64 +25,23 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
         spacing: 10,
         children: [
           Expanded(
-            child: Row(
-              spacing: 30,
-              children: [
-                Expanded(
-                  child: GenderCardWidget(
-                    onTap: () {
-                      setState(() {
-                        isMaleSelected = true;
-                      });
-                    },
-                    label: AppString.male,
-                    icon: Icons.male,
-                    background:
-                        (isMaleSelected == true)
-                            ? AppColors.primaryColor
-                            : AppColors.activeCardColour,
-                  ),
-                ),
-                Expanded(
-                  child: GenderCardWidget(
-                    onTap: () {
-                      setState(() {
-                        isMaleSelected = false;
-                      });
-                    },
-                    label: AppString.female,
-                    icon: Icons.female,
-                    background:
-                        (isMaleSelected == false)
-                            ? AppColors.primaryColor
-                            : AppColors.activeCardColour,
-                  ),
-                ),
-              ],
+            child: SelectGenderView(
+              onGenderChange: (value) {
+                isMaleSelected = value;
+              },
             ),
           ),
-          Expanded(child: SelectHeightView()),
           Expanded(
-            child: Row(
-              spacing: 30,
-              children: [
-                Expanded(
-                  child: CustomeCardWidget(
-                    title: AppString.weight,
-                    label: "50",
-                    onDecremant: () {},
-                    onIncremant: () {},
-                  ),
-                ),
-                Expanded(
-                  child: CustomeCardWidget(
-                    title: AppString.age,
-                    label: "50",
-                    onDecremant: () {},
-                    onIncremant: () {},
-                  ),
-                ),
-              ],
+            child: SelectHeightView(
+              onChange: (value) {
+                height = value;
+              },
+            ),
+          ),
+          Expanded(
+            child: SelectAgeWeightView(
+              onAgeChange: (value) => age = value,
+              onWeightChange: (value) => weight = value,
             ),
           ),
 
@@ -87,7 +49,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
             onPressed: () {},
             color: AppColors.primaryColor,
             minWidth: double.infinity,
-            child: Text(
+            child: const Text(
               AppString.calculate,
               style: TextStyle(
                 color: AppColors.white,

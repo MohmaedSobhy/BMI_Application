@@ -15,7 +15,7 @@ class CustomeCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(25),
+      padding: const EdgeInsets.all(25),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: AppColors.activeCardColour,
@@ -25,11 +25,14 @@ class CustomeCardWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         spacing: 5,
         children: [
-          Text(title, style: TextStyle(fontSize: 25, color: AppColors.grey)),
+          Text(
+            title,
+            style: const TextStyle(fontSize: 25, color: AppColors.grey),
+          ),
           Text(
             label,
-            style: TextStyle(
-              fontSize: 25,
+            style: const TextStyle(
+              fontSize: 20,
               color: AppColors.grey,
               fontWeight: FontWeight.bold,
             ),
@@ -40,14 +43,14 @@ class CustomeCardWidget extends StatelessWidget {
             children: [
               InkWell(
                 onTap: onIncremant,
-                child: CircleAvatar(
+                child: const CircleAvatar(
                   backgroundColor: AppColors.grey,
                   child: Icon(Icons.add, color: AppColors.white),
                 ),
               ),
               InkWell(
                 onTap: onDecremant,
-                child: CircleAvatar(
+                child: const CircleAvatar(
                   backgroundColor: AppColors.grey,
                   child: Icon(Icons.remove, color: AppColors.white),
                 ),

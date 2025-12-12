@@ -19,7 +19,7 @@ class GenderCardWidget extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(25),
+        padding: const EdgeInsets.all(25),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: background,
@@ -28,11 +28,11 @@ class GenderCardWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(icon, size: 100, color: AppColors.white),
-            SizedBox(height: 15),
+            Icon(icon, size: 75, color: AppColors.white),
+            const SizedBox(height: 15),
             Text(
               label,
-              style: TextStyle(
+              style: const TextStyle(
                 color: AppColors.white,
                 fontWeight: FontWeight.bold,
               ),
