@@ -73,7 +73,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                 ),
                 Expanded(
                   child: CustomeCardWidget(
-                    title: AppString.weight,
+                    title: AppString.age,
                     label: "50",
                     onDecremant: () {},
                     onIncremant: () {},
